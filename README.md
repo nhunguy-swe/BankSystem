@@ -1,44 +1,27 @@
-# BankSystem: Unit Testing Walkthrough
+# BankSystem - Unit Testing Practice 
 
-A C# implementation of a bank account management system, developed using **Test-Driven Development (TDD)** principles and the **Microsoft Unit Test Framework**.
+A C# project demonstrating professional unit testing workflows for bank account management logic.
 
-## Project Overview
-This repository demonstrates a professional workflow for creating, running, and customizing unit tests in .NET. It focuses on the `BankAccount` class, specifically ensuring the reliability of debit and credit transactions.
+## Tech Stack
+* **Language:** C# (.NET Core)
+* **Testing Framework:** Microsoft Unit Test Framework (MSTest)
+* **Tool:** Visual Studio Test Explorer
 
-## Features & Logic
-- **Account Management:** Handles customer names and balances.
-- **Transaction Validation:** 
-  - Prevents debits exceeding the current balance.
-  - Prevents transactions with negative amounts.
-  - Throws `ArgumentOutOfRangeException` with detailed error messages for invalid inputs.
+## Testing Methodology
+This project focuses on verifying the reliability of debit and credit transactions through an iterative testing process:
+1. **Arrange-Act-Assert (AAA):** Each test is structured to set up data, perform the operation, and verify the outcome.
+2. **Bug Discovery:** Initial unit tests were used to identify and fix logic errors in balance calculations.
+3. **Refactoring:** Improved the production code to use descriptive constants for error messages after passing initial tests.
 
-## Testing Architecture
-The project is split into two main components following industry standards:
-1. **Bank Project:** The core logic containing the `BankAccount` class.
-2. **BankTests Project:** A dedicated unit test project using **MSTest** (adaptable to NUnit).
+## Testing Scenarios
+* **Debit Validation:** Ensuring debits cannot exceed the current balance.
+* **Boundary Testing:** Testing with zero, positive, and negative amounts to ensure system stability.
+* **Exception Handling:** Verifying that `ArgumentOutOfRangeException` is thrown with specific error messages for invalid inputs.
 
-### Test Methodology
-We use an iterative process of analysis, test development, and refactoring:
-- **Arrange-Act-Assert (AAA):** Each test method is structured to set up data, perform the action, and verify the result.
-- **Exception Testing:** Uses `Assert.ThrowsException` and `StringAssert.Contains` to verify that the correct error messages are delivered when logic fails.
-- **Boundary Analysis:** Tests include valid amounts, negative amounts, and amounts exceeding the balance.
-
-## Getting Started
-
-### Prerequisites
-- Visual Studio 2019/2022 or .NET SDK.
-- **Test Explorer** window for managing and running test suites.
-
-### Running Tests
-1. **Build the Solution:** `Ctrl + SHIFT + B`.
-2. **Open Test Explorer:** `Test > Windows > Test Explorer`.
-3. **Run All Tests:** Click **Run All** in Test Explorer to execute the suite and view the green/red status bar.
-
-## Iterative Improvement & Refactoring
-As per the walkthrough, this project evolved through:
-1. **Bug Discovery:** Initial tests uncovered a bug where debits were incorrectly added to the balance.
-2. **Refactoring:** Improved the production code to provide richer exception information using constants for error messages.
-3. **Robustness:** Added `Assert.Fail()` to test methods to ensure they fail if an expected exception is *not* thrown.
+## How to Run
+1. Open the `.sln` file in **Visual Studio**.
+2. Open **Test Explorer** (`Test > Windows > Test Explorer`).
+3. Click **Run All** to execute the test suite and view the green/red status results.
 
 ---
-*This project follows the official Microsoft documentation for creating and running unit tests for managed code.*
+*This project follows Microsoft's best practices for creating and running unit tests for managed code*.
